@@ -1,0 +1,13 @@
+.App {
+    text-align: left;
+    height: 100vh;
+    display: flex;
+    color: white;
+    flex-direction: column;
+}
+
+.FolderTree {
+    border-right: 1px black solid;
+    padding: 16px;
+    background-color: black;
+}
