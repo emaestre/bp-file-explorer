@@ -1,17 +1,19 @@
 const app = require('express')();
 const server = require('http').createServer(app);
 const PORT = 8080;
-const io = require('socket.io')(server, {
-    cors: {
-        origin: '*',
-    },
-});
+const { Server } = require('socket.io');
 const chokidar = require('chokidar');
 const path = require('path');
 // See more here: https://www.npmjs.com/package/directory-tree
 const dirTree = require('directory-tree');
 
 const args = process.argv.slice(2);
+
+const io = new Server(server, {
+    cors: {
+        origin: '*',
+    },
+});
 
 if (args.length > 0) {
     // Initialize chokidar watcher

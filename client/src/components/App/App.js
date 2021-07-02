@@ -1,13 +1,13 @@
 import { useCallback, useEffect, useState } from 'react';
 // See more here: https://github.com/shunjizhan/react-folder-tree
 import FolderTree from 'react-folder-tree';
-import socketIOClient from 'socket.io-client';
+import { io } from 'socket.io-client';
 
 import './App.css';
 
 function App() {
     const [fileExplorerData, setFileExplorerData] = useState([]);
-    const socket = socketIOClient(process.env.REACT_APP_SOCKET_ENDPOINT);
+    const socket = io(process.env.REACT_APP_SOCKET_ENDPOINT);
 
     const folderTreeConvertion = useCallback((treeNode) => {
         if (!('children' in treeNode)) {
